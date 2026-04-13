@@ -1,0 +1,221 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --maincolor: #f44336;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #eee;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    padding: 20px;
+    margin: 0 0 50px;
+    background-color: white;
+}
+
+.guess-game {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+
+    .game-area {
+        text-align: center;
+
+        .control {
+            display: flex;
+            justify-content: space-evenly;
+            margin: 20px;
+            margin-left: 47px;
+
+            .check {
+                background-color: var(--maincolor);
+                border: none;
+                color: white;
+                padding: 10px 30px;
+                font-size: 20px;
+                cursor: pointer;
+                text-transform: capitalize;
+
+            }
+
+            .reset {
+                background-color: #009688;
+                border: none;
+                color: white;
+                padding: 10px 30px;
+                font-size: 20px;
+                display: none;
+                cursor: pointer;
+                text-transform: capitalize;
+            }
+
+            .hint {
+                background-color: #009688;
+                border: none;
+                color: white;
+                padding: 10px 30px;
+                font-size: 20px;
+                cursor: pointer;
+                text-transform: capitalize;
+
+            }
+        }
+
+        .message {
+            font-size: 30px;
+            font-weight: bold;
+            text-transform: capitalize;
+            position: relative;
+            bottom: 20px;
+
+            span {
+                color: #0d9488;
+                font-weight: bold;
+                font-size: 40px;
+                text-align: center;
+            }
+        }
+    }
+
+    .key-colors {
+        padding: 20px;
+        /* text-align: center; */
+
+        .key-color {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background-color: white;
+            margin: 10px;
+            padding: 10px;
+            text-transform: capitalize;
+            font-weight: bold;
+            position: relative;
+
+            .color {
+                width: 20px;
+                height: 20px;
+                align-self: flex-start;
+
+            }
+        }
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 30px;
+    font-weight: bold;
+    font-size: 30px;
+
+}
+
+input {
+    width: 60px;
+    height: 60px;
+    border: none;
+    outline: none;
+    margin: 3px;
+    font-size: 40px;
+    text-align: center;
+    caret-color: var(--maincolor);
+    border-bottom: black 3px solid;
+}
+
+.disabled-inputs {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.yes_in_place {
+    background-color: #18ba89;
+    border: #18ba89;
+    color: white;
+}
+
+.not_in_place {
+    background-color: #f89e13;
+    border: #f89e13;
+    color: white;
+}
+
+.no {
+    background-color: #27303f;
+    border: #27303f;
+    color: white;
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 767px) {
+    .guess-game {
+        flex-direction: column;
+        /* Stacks game area and key-colors vertically */
+        align-items: center;
+    }
+
+    .guess-game .game-area .control {
+        flex-direction: column;
+        /* Stacks buttons on top of each other */
+        gap: 10px;
+        margin-left: 0;
+        /* Resets that specific margin for mobile */
+        align-items: center;
+    }
+
+    .guess-game .game-area .control button {
+        width: 100%;
+        /* Buttons take full width of their container */
+        max-width: 300px;
+    }
+
+    input {
+        width: 45px;
+        /* Smaller inputs for mobile screens */
+        height: 45px;
+        font-size: 25px;
+    }
+
+    .guess-game .game-area .message {
+        font-size: 22px;
+    }
+
+    .guess-game .game-area .message span {
+        font-size: 30px;
+    }
+
+    footer {
+        position: static;
+        /* Allows the page to scroll past the footer on small screens */
+        margin-top: 20px;
+    }
+}
+
+/* Tablet / Medium Screens */
+@media (min-width: 768px) and (max-width: 991px) {
+    input {
+        width: 50px;
+        height: 50px;
+    }
+}
